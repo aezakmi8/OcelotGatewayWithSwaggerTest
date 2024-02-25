@@ -1,0 +1,6 @@
+@GetCustomerInfoService_HostAddress = http://localhost:5211
+
+GET {{GetCustomerInfoService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

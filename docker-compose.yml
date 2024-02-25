@@ -1,0 +1,36 @@
+﻿version: '3'
+
+services:
+  ocelotgatewaytest:
+    image: ocelotgatewaytest
+    build:
+      context: .
+      dockerfile: OcelotGatewayTest/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - '5000:80'
+
+  getcontactinfoservice:
+    container_name: getcontactinfoservice
+    image: getcontactinfoservice
+    build:
+      context: .
+      dockerfile: GetContactInfoService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - '5001:80'
+
+  getcustomerinfoservice:
+    image: getcustomerinfoservice
+    build:
+      context: .
+      dockerfile: GetCustomerInfoService/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=80
+    ports:
+      - '5002:80'
